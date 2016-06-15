@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>VIM高级玩法 | Gray Legend</title>
+  <title>PPTP Client 配置 | Gray Legend</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.将二进制文件转换成16进制形式1:%!xxd">
+  <meta name="description" content="0.安装pptp1apt-get install pptp
+1.配置pptp123#service pptpd restart#iptables -Fpptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start
+2.配置路由123456789101112131">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIM高级玩法">
-<meta property="og:url" content="http://yoursite.com/2016/02/22/vim/index.html">
+<meta property="og:title" content="PPTP Client 配置">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/pptp/index.html">
 <meta property="og:site_name" content="Gray Legend">
-<meta property="og:description" content="1.将二进制文件转换成16进制形式1:%!xxd">
-<meta property="og:updated_time" content="2016-06-15T21:06:48.606Z">
+<meta property="og:description" content="0.安装pptp1apt-get install pptp
+1.配置pptp123#service pptpd restart#iptables -Fpptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start
+2.配置路由123456789101112131">
+<meta property="og:updated_time" content="2016-06-15T21:28:20.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VIM高级玩法">
-<meta name="twitter:description" content="1.将二进制文件转换成16进制形式1:%!xxd">
+<meta name="twitter:title" content="PPTP Client 配置">
+<meta name="twitter:description" content="0.安装pptp1apt-get install pptp
+1.配置pptp123#service pptpd restart#iptables -Fpptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start
+2.配置路由123456789101112131">
   
     <link rel="alternative" href="/atom.xml" title="Gray Legend" type="application/atom+xml">
   
@@ -201,11 +207,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pptp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/22/vim/" class="article-date">
-  	<time datetime="2016-02-22T13:11:45.000Z" itemprop="datePublished">2016-02-22</time>
+      <a href="/2016/06/15/pptp/" class="article-date">
+  	<time datetime="2016-06-15T13:21:45.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -218,7 +224,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      VIM高级玩法
+      PPTP Client 配置
     </h1>
   
 
@@ -227,7 +233,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pptp/">pptp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpn/">vpn</a></li></ul>
 	</div>
 
         
@@ -238,7 +244,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.将二进制文件转换成16进制形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%!xxd</span><br></pre></td></tr></table></figure></p>
+        <p>0.安装pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pptp</span><br></pre></td></tr></table></figure></p>
+<p>1.配置pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service pptpd restart</span></span><br><span class="line"><span class="comment">#iptables -F</span></span><br><span class="line">pptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start</span><br></pre></td></tr></table></figure></p>
+<p>2.配置路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service pptpd restart</span></span><br><span class="line">VPN_Server=xxx.xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line">route &gt; /tmp/.route.tmp</span><br><span class="line">grep -rn <span class="string">"default"</span> /tmp/.route.tmp | awk <span class="string">'&#123;print $2&#125;'</span>&gt;/tmp/.default_gw  </span><br><span class="line"><span class="built_in">read</span> default_gw &lt; /tmp/.default_gw</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$default_gw</span></span><br><span class="line"><span class="comment">#default_gw=172.6.1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#modify route</span></span><br><span class="line">route add -host <span class="variable">$VPN_Server</span> gw <span class="variable">$default_gw</span> dev eth0</span><br><span class="line">route del default</span><br><span class="line">route add -net <span class="number">0.0</span>.<span class="number">0.0</span> dev ppp0</span><br><span class="line"></span><br><span class="line"><span class="comment">#add a periodic visit to vpn, to keep the ppp</span></span><br><span class="line"><span class="comment">#ping www.baidu.com -i 15</span></span><br></pre></td></tr></table></figure></p>
+<p>3.关闭pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pptpsetup --delete vpn</span><br></pre></td></tr></table></figure></p>
+<p>4.恢复路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#close l2tp</span></span><br><span class="line"><span class="comment">#echo "d DO" &gt; /var/run/l2tp-control</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#close ipsec</span></span><br><span class="line"><span class="comment">#ipsec auto --down DO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#recover route</span></span><br><span class="line"><span class="built_in">read</span> default_gw &lt; /tmp/.default_gw</span><br><span class="line"></span><br><span class="line">route del default</span><br><span class="line">route add -net <span class="number">0.0</span>.<span class="number">0.0</span>  gw <span class="variable">$default_gw</span> dev eth0</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -248,18 +258,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/18/initrd_note/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Initrd.img学习笔记1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/22/linux_cmd/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">随手记</div>
+    <a href="/2016/04/21/hongmi_link/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">玩红米手机随记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -294,7 +295,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vim" data-title="VIM高级玩法" data-url="http://yoursite.com/2016/02/22/vim/"></div>
+	<div class="ds-thread" data-thread-key="pptp" data-title="PPTP Client 配置" data-url="http://yoursite.com/2016/06/15/pptp/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

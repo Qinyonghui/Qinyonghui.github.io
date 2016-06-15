@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/boot/" style="font-size: 10px;">boot</a> <a href="/tags/grub/" style="font-size: 10px;">grub</a> <a href="/tags/ubuntu/" style="font-size: 20px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a>
+						<a href="/tags/boot/" style="font-size: 15px;">boot</a> <a href="/tags/grub/" style="font-size: 10px;">grub</a> <a href="/tags/hongmi/" style="font-size: 10px;">hongmi</a> <a href="/tags/initrd/" style="font-size: 10px;">initrd</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/pptp/" style="font-size: 10px;">pptp</a> <a href="/tags/ubuntu/" style="font-size: 20px;">ubuntu</a> <a href="/tags/usb/" style="font-size: 10px;">usb</a> <a href="/tags/vim/" style="font-size: 15px;">vim</a> <a href="/tags/vpn/" style="font-size: 15px;">vpn</a>
 					</div>
 				</section>
 				
@@ -202,11 +202,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-hongmi_link" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-pptp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/06/hongmi_link/" class="article-date">
-  	<time datetime="2016-03-06T12:42:36.476Z" itemprop="datePublished">2016-03-06</time>
+      <a href="/2016/06/15/pptp/" class="article-date">
+  	<time datetime="2016-06-15T13:21:45.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -215,13 +215,24 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/pptp/">PPTP Client 配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>lsusb</p>
-<p>sudo vi /etc/udev/rules.d/70-android.rules<br>SUBSYSTEM==”usb”, ATTRS{idVendor}==”230b”, ATTRS{idProduct}==”0100”,MODE=”0666”</p>
-<p>sudo chmod a+rx /etc/udev/rules.d/70-android.rules</p>
-<p>$sudo service udev restart</p>
-<p>sudo -s<br>adb kill-server<br>adb devices</p>
+        <p>0.安装pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pptp</span><br></pre></td></tr></table></figure></p>
+<p>1.配置pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service pptpd restart</span></span><br><span class="line"><span class="comment">#iptables -F</span></span><br><span class="line">pptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start</span><br></pre></td></tr></table></figure></p>
+<p>2.配置路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service pptpd restart</span></span><br><span class="line">VPN_Server=xxx.xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line">route &gt; /tmp/.route.tmp</span><br><span class="line">grep -rn <span class="string">"default"</span> /tmp/.route.tmp | awk <span class="string">'&#123;print $2&#125;'</span>&gt;/tmp/.default_gw  </span><br><span class="line"><span class="built_in">read</span> default_gw &lt; /tmp/.default_gw</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$default_gw</span></span><br><span class="line"><span class="comment">#default_gw=172.6.1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#modify route</span></span><br><span class="line">route add -host <span class="variable">$VPN_Server</span> gw <span class="variable">$default_gw</span> dev eth0</span><br><span class="line">route del default</span><br><span class="line">route add -net <span class="number">0.0</span>.<span class="number">0.0</span> dev ppp0</span><br><span class="line"></span><br><span class="line"><span class="comment">#add a periodic visit to vpn, to keep the ppp</span></span><br><span class="line"><span class="comment">#ping www.baidu.com -i 15</span></span><br></pre></td></tr></table></figure></p>
+<p>3.关闭pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pptpsetup --delete vpn</span><br></pre></td></tr></table></figure></p>
+<p>4.恢复路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#close l2tp</span></span><br><span class="line"><span class="comment">#echo "d DO" &gt; /var/run/l2tp-control</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#close ipsec</span></span><br><span class="line"><span class="comment">#ipsec auto --down DO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#recover route</span></span><br><span class="line"><span class="built_in">read</span> default_gw &lt; /tmp/.default_gw</span><br><span class="line"></span><br><span class="line">route del default</span><br><span class="line">route add -net <span class="number">0.0</span>.<span class="number">0.0</span>  gw <span class="variable">$default_gw</span> dev eth0</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -229,6 +240,10 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pptp/">pptp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpn/">vpn</a></li></ul>
+	</div>
+
       
 
       
@@ -248,11 +263,11 @@
 
 
   
-    <article id="post-linux_cmd" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hongmi_link" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/03/linux_cmd/" class="article-date">
-  	<time datetime="2016-03-03T15:10:32.066Z" itemprop="datePublished">2016-03-03</time>
+      <a href="/2016/04/21/hongmi_link/" class="article-date">
+  	<time datetime="2016-04-21T09:50:45.000Z" itemprop="datePublished">2016-04-21</time>
 </a>
     </div>
   
@@ -261,10 +276,22 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/21/hongmi_link/">玩红米手机随记</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>/boot/grub/menu.lst<br>vga=ask</p>
-<p>sudo dpkg-reconfigure console-setup</p>
+        <p>用lsusb来查看usb设备<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsusb</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/udev/rules.d/<span class="number">70</span>-android.rules</span><br><span class="line">SUBSYSTEM==<span class="string">"usb"</span>, ATTRS&#123;idVendor&#125;==<span class="string">"230b"</span>, ATTRS&#123;idProduct&#125;==<span class="string">"0100"</span>,MODE=<span class="string">"0666"</span></span><br><span class="line">sudo chmod a+rx /etc/udev/rules.d/<span class="number">70</span>-android.rules</span><br><span class="line">sudo service udev restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="operator">-s</span></span><br><span class="line">adb <span class="built_in">kill</span>-server</span><br><span class="line">adb devices</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -272,6 +299,73 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hongmi/">hongmi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usb/">usb</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-initrd_note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/18/initrd_note/" class="article-date">
+  	<time datetime="2016-03-18T15:02:22.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/18/initrd_note/">Initrd.img学习笔记1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　先来一段百度百科。<br>　　initrd: (Init RAM Disk),是Linux系统引导过程中的一个临时根文件系统。但在很多嵌入式Linux系统中（比如说Android），initrd就是最终的根文件系统。</p>
+<p>　　在ubuntu中，initrd在/boot下，通常命名是initrd.img-xxx(xxx是对应kernel的版本号)，如initrd.img-3.16.0-38-generic</p>
+<p>可以看一下它的文件格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ file initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic </span><br><span class="line">initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic: gzip compressed data, from Unix, last modified: Sat Oct <span class="number">24</span> <span class="number">11</span>:<span class="number">41</span>:<span class="number">44</span> <span class="number">2015</span></span><br></pre></td></tr></table></figure></p>
+<p>它是一个gzip格式的压缩文件<br>我将它解压出来<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cp</span> initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic /tmp/initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic.img.zip   //gunzip 识别文件后缀，要不然解压不了。。</span><br><span class="line"><span class="variable">$gunzip</span> <span class="operator">-d</span> initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic.img.gz</span><br><span class="line"><span class="variable">$file</span> initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic.img </span><br><span class="line">initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic.img: ASCII cpio archive (SVR4 with no CRC)</span><br></pre></td></tr></table></figure></p>
+<p>终于看到真面目了，所以initrd.img-xxx 是cpio归档格式文件的压缩包。</p>
+<p>　　这里再科普一下CPIO，我在研究initrd以前从来没接触过cpio。<br>　　cpio 是一个非常有用的备份工具，它最大的不同处，是 可以备份从标准输入（ stdin ）而来的的档案 。 目前有些新版的 tar 支持 从标准输入来的档案备份，但大部份尚未有此功能。<br>　　为什么cpio较不常被使用？<br>　　cpio有时支持 I 及 O；有的版本则无。如果将 cpio 每种版本的选项累计，则有近 40 个选项， 甚至有些使用同一字母的参数，在不同版本的 Unix 有不同的意义。 但您只要使用在大部份平台皆标准的选项，那么，cpio 几乎与 tar 一般简单好用。</p>
+<p>接着我们用cpio命令从archives中读出文件,一个我们熟知的根文件系统出现在我们面前。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cpio</span> -idmv &lt; initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic.img</span><br><span class="line"><span class="variable">$ls</span></span><br><span class="line">bin   etc   initrd.img-<span class="number">3.16</span>.<span class="number">0</span>-<span class="number">38</span>-generic.img  lib64  sbin</span><br><span class="line">conf  init  lib                               run    scripts</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/boot/">boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/initrd/">initrd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
       
 
       
@@ -318,6 +412,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1.将二进制文件转换成16进制形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%!xxd</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-linux_cmd" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/22/linux_cmd/" class="article-date">
+  	<time datetime="2016-02-22T13:11:45.000Z" itemprop="datePublished">2016-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/22/linux_cmd/">随手记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /boot/grub/menu.lst</span><br></pre></td></tr></table></figure>
+<p>vga=ask</p>
+<p>sudo dpkg-reconfigure console-setup</p>
 
       
     </div>
