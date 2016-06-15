@@ -4,17 +4,23 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Gray Legend</title>
+  <title>Grub学习笔记 | Gray Legend</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gray Legend">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前些日子我装机装系统的时候，先装了ubuntu，后装了windows，导致最后ubuntu加载不起来，用easybcd引导系统也不尽如人意；后来接触到了grub，觉得是个很神奇的东西，研究了一下。最终对Grub有了最深刻的认识是通过大神Bean_lee的博客，在此推荐给大家，http://blog.chinaunix.net/uid-24774106-id-3497929.html
+　　GRUB(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grub学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/02/21/Grub_note/index.html">
 <meta property="og:site_name" content="Gray Legend">
-<meta property="og:description">
+<meta property="og:description" content="前些日子我装机装系统的时候，先装了ubuntu，后装了windows，导致最后ubuntu加载不起来，用easybcd引导系统也不尽如人意；后来接触到了grub，觉得是个很神奇的东西，研究了一下。最终对Grub有了最深刻的认识是通过大神Bean_lee的博客，在此推荐给大家，http://blog.chinaunix.net/uid-24774106-id-3497929.html
+　　GRUB(">
+<meta property="og:image" content="http://yoursite.com/mark/boot_flow.gif">
+<meta property="og:image" content="http://yoursite.com/mark/MBR_struct.png">
+<meta property="og:updated_time" content="2016-02-22T10:56:52.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gray Legend">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Grub学习笔记">
+<meta name="twitter:description" content="前些日子我装机装系统的时候，先装了ubuntu，后装了windows，导致最后ubuntu加载不起来，用easybcd引导系统也不尽如人意；后来接触到了grub，觉得是个很神奇的东西，研究了一下。最终对Grub有了最深刻的认识是通过大神Bean_lee的博客，在此推荐给大家，http://blog.chinaunix.net/uid-24774106-id-3497929.html
+　　GRUB(">
   
     <link rel="alternative" href="/atom.xml" title="Gray Legend" type="application/atom+xml">
   
@@ -200,155 +206,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-hongmi_link" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/06/hongmi_link/" class="article-date">
-  	<time datetime="2016-03-06T12:42:36.476Z" itemprop="datePublished">2016-03-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>lsusb</p>
-<p>sudo vi /etc/udev/rules.d/70-android.rules<br>SUBSYSTEM==”usb”, ATTRS{idVendor}==”230b”, ATTRS{idProduct}==”0100”,MODE=”0666”</p>
-<p>sudo chmod a+rx /etc/udev/rules.d/70-android.rules</p>
-<p>$sudo service udev restart</p>
-<p>sudo -s<br>adb kill-server<br>adb devices</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux_cmd" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/03/linux_cmd/" class="article-date">
-  	<time datetime="2016-03-03T15:10:32.066Z" itemprop="datePublished">2016-03-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/boot/grub/menu.lst<br>vga=ask</p>
-<p>sudo dpkg-reconfigure console-setup</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/22/vim/" class="article-date">
-  	<time datetime="2016-02-22T13:11:45.000Z" itemprop="datePublished">2016-02-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/22/vim/">VIM高级玩法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.将二进制文件转换成16进制形式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%!xxd</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Grub_note" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Grub_note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/02/21/Grub_note/" class="article-date">
@@ -364,12 +222,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/21/Grub_note/">Grub学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      Grub学习笔记
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/boot/">boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub/">grub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -388,155 +257,77 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/boot/">boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub/">grub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-搭建ubuntu-pptp-vpn" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/08/搭建ubuntu-pptp-vpn/" class="article-date">
-  	<time datetime="2015-11-08T03:21:35.000Z" itemprop="datePublished">2015-11-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2016/02/22/vim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/08/搭建ubuntu-pptp-vpn/">搭建 ubuntu pptp vpn</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>pluto: 实现了IKEv1 (RFC2409)<br>pluto是一个IKE(ipsec密钥交换)的守护进程，whack是一个辅助程序，运行请求的程序</p>
-<p>用自身的IPSEC内核堆栈, KLIPS<br>或者2.6n内核中的堆栈 26sec  &lt;-用它不用给内核打补丁，就可以用nat</p>
-<p>RSA signature 数字签名<br>生成一个新的RSA密钥</p>
-<pre><code>首先，需要购买一个vps，我使用的是digitalocean提供的服务器，
-<span class="number">1.</span>安装pptpd
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpn/">vpn</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/06/hello-world/" class="article-date">
-  	<time datetime="2015-11-06T13:15:41.596Z" itemprop="datePublished">2015-11-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          VIM高级玩法
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2015/11/08/搭建ubuntu-pptp-vpn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建 ubuntu pptp vpn</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
 
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Grub_note" data-title="Grub学习笔记" data-url="http://yoursite.com/2016/02/21/Grub_note/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -560,8 +351,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
