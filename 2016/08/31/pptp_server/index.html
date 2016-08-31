@@ -4,24 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>PPTP Client 配置 | Gray Legend</title>
+  <title>PPTP Server 配置 | Gray Legend</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0.安装pptp1apt-get install pptp
-1.配置pptp123#service pptpd restart#iptables -Fpptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start
-2.配置路由123456789101112131">
+  <meta name="description" content="0.安装pptp12sudo apt-get -y updatesudo apt-get -y install pptpd
+1.配置pptp选项参数12345678910111213141516cat &amp;gt;/etc/ppp/options.pptpd &amp;lt;&amp;lt;ENDname pptpdrefuse-paprefuse-chaprefuse-mschaprequire-mschap-v2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PPTP Client 配置">
-<meta property="og:url" content="http://yoursite.com/2016/06/15/pptp/index.html">
+<meta property="og:title" content="PPTP Server 配置">
+<meta property="og:url" content="http://yoursite.com/2016/08/31/pptp_server/index.html">
 <meta property="og:site_name" content="Gray Legend">
-<meta property="og:description" content="0.安装pptp1apt-get install pptp
-1.配置pptp123#service pptpd restart#iptables -Fpptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start
-2.配置路由123456789101112131">
-<meta property="og:updated_time" content="2016-08-31T16:12:23.116Z">
+<meta property="og:description" content="0.安装pptp12sudo apt-get -y updatesudo apt-get -y install pptpd
+1.配置pptp选项参数12345678910111213141516cat &amp;gt;/etc/ppp/options.pptpd &amp;lt;&amp;lt;ENDname pptpdrefuse-paprefuse-chaprefuse-mschaprequire-mschap-v2">
+<meta property="og:updated_time" content="2016-08-31T16:23:41.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PPTP Client 配置">
-<meta name="twitter:description" content="0.安装pptp1apt-get install pptp
-1.配置pptp123#service pptpd restart#iptables -Fpptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start
-2.配置路由123456789101112131">
+<meta name="twitter:title" content="PPTP Server 配置">
+<meta name="twitter:description" content="0.安装pptp12sudo apt-get -y updatesudo apt-get -y install pptpd
+1.配置pptp选项参数12345678910111213141516cat &amp;gt;/etc/ppp/options.pptpd &amp;lt;&amp;lt;ENDname pptpdrefuse-paprefuse-chaprefuse-mschaprequire-mschap-v2">
   
     <link rel="alternative" href="/atom.xml" title="Gray Legend" type="application/atom+xml">
   
@@ -207,11 +204,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-pptp" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pptp_server" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/15/pptp/" class="article-date">
-  	<time datetime="2016-06-15T13:21:45.000Z" itemprop="datePublished">2016-06-15</time>
+      <a href="/2016/08/31/pptp_server/" class="article-date">
+  	<time datetime="2016-08-31T13:21:45.000Z" itemprop="datePublished">2016-08-31</time>
 </a>
     </div>
   
@@ -224,7 +221,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PPTP Client 配置
+      PPTP Server 配置
     </h1>
   
 
@@ -244,11 +241,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>0.安装pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pptp</span><br></pre></td></tr></table></figure></p>
-<p>1.配置pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service pptpd restart</span></span><br><span class="line"><span class="comment">#iptables -F</span></span><br><span class="line">pptpsetup --create vpn --server xxx.xxx.xxx.xxx --username ????? --password ****** --encrypt --start</span><br></pre></td></tr></table></figure></p>
-<p>2.配置路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#service pptpd restart</span></span><br><span class="line">VPN_Server=xxx.xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line">route &gt; /tmp/.route.tmp</span><br><span class="line">grep -rn <span class="string">"default"</span> /tmp/.route.tmp | awk <span class="string">'&#123;print $2&#125;'</span>&gt;/tmp/.default_gw  </span><br><span class="line"><span class="built_in">read</span> default_gw &lt; /tmp/.default_gw</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$default_gw</span></span><br><span class="line"><span class="comment">#default_gw=172.6.1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#modify route</span></span><br><span class="line">route add -host <span class="variable">$VPN_Server</span> gw <span class="variable">$default_gw</span> dev eth0</span><br><span class="line">route del default</span><br><span class="line">route add -net <span class="number">0.0</span>.<span class="number">0.0</span> dev ppp0</span><br><span class="line"></span><br><span class="line"><span class="comment">#add a periodic visit to vpn, to keep the ppp</span></span><br><span class="line"><span class="comment">#ping www.baidu.com -i 15</span></span><br></pre></td></tr></table></figure></p>
-<p>3.关闭pptp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pptpsetup --delete vpn</span><br></pre></td></tr></table></figure></p>
-<p>4.恢复路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#close l2tp</span></span><br><span class="line"><span class="comment">#echo "d DO" &gt; /var/run/l2tp-control</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#close ipsec</span></span><br><span class="line"><span class="comment">#ipsec auto --down DO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#recover route</span></span><br><span class="line"><span class="built_in">read</span> default_gw &lt; /tmp/.default_gw</span><br><span class="line"></span><br><span class="line">route del default</span><br><span class="line">route add -net <span class="number">0.0</span>.<span class="number">0.0</span>  gw <span class="variable">$default_gw</span> dev eth0</span><br></pre></td></tr></table></figure></p>
+        <h2 id="0-安装pptp">0.安装pptp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y update</span><br><span class="line">sudo apt-get -y install pptpd</span><br></pre></td></tr></table></figure>
+<h2 id="1-配置pptp选项参数">1.配置pptp选项参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;/etc/ppp/options.pptpd &lt;&lt;END</span><br><span class="line">name pptpd</span><br><span class="line">refuse-pap</span><br><span class="line">refuse-chap</span><br><span class="line">refuse-mschap</span><br><span class="line">require-mschap-v2</span><br><span class="line">require-mppe-<span class="number">128</span></span><br><span class="line">ms-dns <span class="number">8.8</span>.<span class="number">8.8</span></span><br><span class="line">ms-dns <span class="number">8.8</span>.<span class="number">4.4</span></span><br><span class="line">proxyarp</span><br><span class="line">lock</span><br><span class="line">nobsdcomp </span><br><span class="line">novj</span><br><span class="line">novjccomp</span><br><span class="line">nologfd</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p>说明:</p>
+<p>name pptpd（pptpd服务名，可以随便填写。）<br>refuse-pap（拒绝pap身份认证模式。）<br>refuse-chap（拒绝chap身份认证模式。）<br>refuse-mschap（拒绝mschap身份认证模式。）<br>require-mschap-v2（在端点进行连接握手时需要使用微软的 mschap-v2 进行自身验证。）<br>require-mppe-128（MPPE 模块使用 128 位加密。）<br>ms-dns 8.8.8.8 (ppp 为 Windows 客户端提供 DNS 服务器 IP 地址。)<br>proxyarp (建立 ARP 代理键值。)<br>nodefaultroute（不替换默认路由）<br>debug（开启调试模式，相关信息记录在 /var/logs/message 中。）<br>lock（锁定客户端 PTY 设备文件。）<br>nobsdcomp (禁用 BSD 压缩模式。)</p>
+<h2 id="2-配置pptp高级参数">2.配置pptp高级参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/pptpd.conf &lt;&lt;END</span><br><span class="line">option /etc/ppp/options.pptpd</span><br><span class="line">logwtmp</span><br><span class="line">localip <span class="number">192.168</span>.<span class="number">2.1</span></span><br><span class="line">remoteip <span class="number">192.168</span>.<span class="number">2.10</span>-<span class="number">100</span></span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<h2 id="3-增加路由转发">3.增加路由转发</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ipv4转发</span></span><br><span class="line">cat &gt;&gt; /etc/sysctl.conf &lt;&lt;END</span><br><span class="line">net.ipv4.ip_forward=<span class="number">1</span></span><br><span class="line">END</span><br><span class="line"><span class="comment">#使修改参数生效</span></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<h2 id="4-修改iptables">4.修改iptables</h2><p>备份当前iptables<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; /etc/iptables.down.rules</span><br></pre></td></tr></table></figure></p>
+<p>修改iptable NAT转发<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure></p>
+<p>设置MTU<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I FORWARD <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> -p tcp --syn -i ppp+ -j TCPMSS --set-mss <span class="number">1300</span></span><br></pre></td></tr></table></figure></p>
+<p>保存新iptables<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; /etc/iptables.up.rules</span><br></pre></td></tr></table></figure></p>
+<p>重启后继续有效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt;/etc/ppp/pptpd-options&lt;&lt;EOF</span><br><span class="line">pre-up iptables-restore &lt; /etc/iptables.up.rules</span><br><span class="line">post-down iptables-restore &lt; /etc/iptables.down.rules</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-增加用户">5.增加用户</h2><p>增加帐号密码都是test的用户<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;/etc/ppp/chap-secrets &lt;&lt;END</span><br><span class="line"><span class="built_in">test</span> pptpd <span class="built_in">test</span> *</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-重启服务">6.重启服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/pptpd restart</span><br><span class="line">netstat -lntp</span><br></pre></td></tr></table></figure>
+<h2 id="7-自动脚本">7.自动脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/Qinyonghui/my_hexo/tree/master/<span class="built_in">source</span>/script/pptp.sh</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -258,18 +264,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/08/31/pptp_server/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          PPTP Server 配置
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/04/21/hongmi_link/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">玩红米手机随记</div>
+    <a href="/2016/06/15/pptp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PPTP Client 配置</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -304,7 +301,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="pptp" data-title="PPTP Client 配置" data-url="http://yoursite.com/2016/06/15/pptp/"></div>
+	<div class="ds-thread" data-thread-key="pptp_server" data-title="PPTP Server 配置" data-url="http://yoursite.com/2016/08/31/pptp_server/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
