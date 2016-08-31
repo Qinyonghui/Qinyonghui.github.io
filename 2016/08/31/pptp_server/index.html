@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Gray Legend">
 <meta property="og:description" content="0.安装pptp12sudo apt-get -y updatesudo apt-get -y install pptpd
 1.配置pptp选项参数12345678910111213141516cat &amp;gt;/etc/ppp/options.pptpd &amp;lt;&amp;lt;ENDname pptpdrefuse-paprefuse-chaprefuse-mschaprequire-mschap-v2">
-<meta property="og:updated_time" content="2016-08-31T16:23:41.536Z">
+<meta property="og:updated_time" content="2016-08-31T16:35:30.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PPTP Server 配置">
 <meta name="twitter:description" content="0.安装pptp12sudo apt-get -y updatesudo apt-get -y install pptpd
@@ -255,6 +255,7 @@
 <h2 id="5-增加用户">5.增加用户</h2><p>增加帐号密码都是test的用户<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;/etc/ppp/chap-secrets &lt;&lt;END</span><br><span class="line"><span class="built_in">test</span> pptpd <span class="built_in">test</span> *</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
 <h2 id="6-重启服务">6.重启服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/pptpd restart</span><br><span class="line">netstat -lntp</span><br></pre></td></tr></table></figure>
 <h2 id="7-自动脚本">7.自动脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/Qinyonghui/my_hexo/tree/master/<span class="built_in">source</span>/script/pptp.sh</span><br></pre></td></tr></table></figure>
+<p>参考: <a href="http://yansu.org/2013/12/11/deploy-pptp-vpn-in-ubuntu.html" target="_blank" rel="external">http://yansu.org/2013/12/11/deploy-pptp-vpn-in-ubuntu.html</a></p>
 
       
     </div>
