@@ -9,7 +9,9 @@
   <meta name="description" content="1vim /boot/grub/menu.lst
 vga=ask
 sudo dpkg-reconfigure console-setup
-initctl list">
+initctl list
+12#查看运行等级runlevel
+1234#添加启动服务sudo update-rc.d pptpd defaults 95#去除启动服务sudo update-rc.d -f pptpd remove">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随手记">
 <meta property="og:url" content="http://yoursite.com/2016/02/22/linux_cmd/index.html">
@@ -17,14 +19,18 @@ initctl list">
 <meta property="og:description" content="1vim /boot/grub/menu.lst
 vga=ask
 sudo dpkg-reconfigure console-setup
-initctl list">
-<meta property="og:updated_time" content="2016-06-27T14:47:35.556Z">
+initctl list
+12#查看运行等级runlevel
+1234#添加启动服务sudo update-rc.d pptpd defaults 95#去除启动服务sudo update-rc.d -f pptpd remove">
+<meta property="og:updated_time" content="2016-09-07T12:35:57.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随手记">
 <meta name="twitter:description" content="1vim /boot/grub/menu.lst
 vga=ask
 sudo dpkg-reconfigure console-setup
-initctl list">
+initctl list
+12#查看运行等级runlevel
+1234#添加启动服务sudo update-rc.d pptpd defaults 95#去除启动服务sudo update-rc.d -f pptpd remove">
   
     <link rel="alternative" href="/atom.xml" title="Gray Legend" type="application/atom+xml">
   
@@ -126,7 +132,7 @@ initctl list">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/boot/" style="font-size: 13.33px;">boot</a> <a href="/tags/grub/" style="font-size: 10px;">grub</a> <a href="/tags/hongmi/" style="font-size: 10px;">hongmi</a> <a href="/tags/initrd/" style="font-size: 10px;">initrd</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/pptp/" style="font-size: 13.33px;">pptp</a> <a href="/tags/ubuntu/" style="font-size: 20px;">ubuntu</a> <a href="/tags/usb/" style="font-size: 10px;">usb</a> <a href="/tags/vim/" style="font-size: 13.33px;">vim</a> <a href="/tags/vpn/" style="font-size: 16.67px;">vpn</a>
+						<a href="/tags/boot/" style="font-size: 13.33px;">boot</a> <a href="/tags/grub/" style="font-size: 10px;">grub</a> <a href="/tags/hongmi/" style="font-size: 10px;">hongmi</a> <a href="/tags/initrd/" style="font-size: 10px;">initrd</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/pptp/" style="font-size: 13.33px;">pptp</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/ubuntu/" style="font-size: 20px;">ubuntu</a> <a href="/tags/usb/" style="font-size: 10px;">usb</a> <a href="/tags/vim/" style="font-size: 13.33px;">vim</a> <a href="/tags/vpn/" style="font-size: 16.67px;">vpn</a>
 					</div>
 				</section>
 				
@@ -251,6 +257,8 @@ initctl list">
 <p>vga=ask</p>
 <p>sudo dpkg-reconfigure console-setup</p>
 <p>initctl list</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#查看运行等级</span></span><br><span class="line">runlevel</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#添加启动服务</span><br><span class="line">sudo <span class="operator"><span class="keyword">update</span>-rc.<span class="keyword">d</span> pptpd <span class="keyword">defaults</span> <span class="number">95</span></span><br><span class="line">#去除启动服务</span><br><span class="line">sudo <span class="keyword">update</span>-rc.<span class="keyword">d</span> -<span class="keyword">f</span> pptpd remove</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
