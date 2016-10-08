@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>搭建 ubuntu pptp vpn | Gray Legend</title>
+  <title>Grub 安装配置 | Gray Legend</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pluto: 实现了IKEv1 (RFC2409)pluto是一个IKE(ipsec密钥交换)的守护进程，whack是一个辅助程序，运行请求的程序
-用自身的IPSEC内核堆栈, KLIPS或者2.6n内核中的堆栈 26sec  &amp;lt;-用它不用给内核打补丁，就可以用nat
-RSA signature 数字签名生成一个新的RSA密钥
-首先，需要购买一个vps，我使用的是digitalocean提供">
+  <meta name="description" content="0.安装grub1apt-get install grub
+1.执行grub命令12345#设置启动分区, stage1,stage1.5和stage2所在的位置grub&amp;gt;root (hd0,0)#将grub安装到mbrgrub&amp;gt;setup (hd0)grub&amp;gt;quit
+2.配置menu.lst1vim /boot/grub/menu.lst
+12345678title">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建 ubuntu pptp vpn">
-<meta property="og:url" content="http://yoursite.com/2015/11/08/搭建ubuntu-pptp-vpn/index.html">
+<meta property="og:title" content="Grub 安装配置">
+<meta property="og:url" content="http://yoursite.com/2016/10/08/Grub_note2/index.html">
 <meta property="og:site_name" content="Gray Legend">
-<meta property="og:description" content="pluto: 实现了IKEv1 (RFC2409)pluto是一个IKE(ipsec密钥交换)的守护进程，whack是一个辅助程序，运行请求的程序
-用自身的IPSEC内核堆栈, KLIPS或者2.6n内核中的堆栈 26sec  &amp;lt;-用它不用给内核打补丁，就可以用nat
-RSA signature 数字签名生成一个新的RSA密钥
-首先，需要购买一个vps，我使用的是digitalocean提供">
-<meta property="og:updated_time" content="2015-11-08T03:38:22.420Z">
+<meta property="og:description" content="0.安装grub1apt-get install grub
+1.执行grub命令12345#设置启动分区, stage1,stage1.5和stage2所在的位置grub&amp;gt;root (hd0,0)#将grub安装到mbrgrub&amp;gt;setup (hd0)grub&amp;gt;quit
+2.配置menu.lst1vim /boot/grub/menu.lst
+12345678title">
+<meta property="og:updated_time" content="2016-10-08T15:24:50.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建 ubuntu pptp vpn">
-<meta name="twitter:description" content="pluto: 实现了IKEv1 (RFC2409)pluto是一个IKE(ipsec密钥交换)的守护进程，whack是一个辅助程序，运行请求的程序
-用自身的IPSEC内核堆栈, KLIPS或者2.6n内核中的堆栈 26sec  &amp;lt;-用它不用给内核打补丁，就可以用nat
-RSA signature 数字签名生成一个新的RSA密钥
-首先，需要购买一个vps，我使用的是digitalocean提供">
+<meta name="twitter:title" content="Grub 安装配置">
+<meta name="twitter:description" content="0.安装grub1apt-get install grub
+1.执行grub命令12345#设置启动分区, stage1,stage1.5和stage2所在的位置grub&amp;gt;root (hd0,0)#将grub安装到mbrgrub&amp;gt;setup (hd0)grub&amp;gt;quit
+2.配置menu.lst1vim /boot/grub/menu.lst
+12345678title">
   
     <link rel="alternative" href="/atom.xml" title="Gray Legend" type="application/atom+xml">
   
@@ -210,11 +210,11 @@ RSA signature 数字签名生成一个新的RSA密钥
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-搭建ubuntu-pptp-vpn" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Grub_note2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/08/搭建ubuntu-pptp-vpn/" class="article-date">
-  	<time datetime="2015-11-08T03:21:35.000Z" itemprop="datePublished">2015-11-08</time>
+      <a href="/2016/10/08/Grub_note2/" class="article-date">
+  	<time datetime="2016-10-08T14:07:45.000Z" itemprop="datePublished">2016-10-08</time>
 </a>
     </div>
   
@@ -227,7 +227,7 @@ RSA signature 数字签名生成一个新的RSA密钥
         
   
     <h1 class="article-title" itemprop="name">
-      搭建 ubuntu pptp vpn
+      Grub 安装配置
     </h1>
   
 
@@ -236,7 +236,7 @@ RSA signature 数字签名生成一个新的RSA密钥
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpn/">vpn</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub/">grub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
 	</div>
 
         
@@ -247,12 +247,19 @@ RSA signature 数字签名生成一个新的RSA密钥
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>pluto: 实现了IKEv1 (RFC2409)<br>pluto是一个IKE(ipsec密钥交换)的守护进程，whack是一个辅助程序，运行请求的程序</p>
-<p>用自身的IPSEC内核堆栈, KLIPS<br>或者2.6n内核中的堆栈 26sec  &lt;-用它不用给内核打补丁，就可以用nat</p>
-<p>RSA signature 数字签名<br>生成一个新的RSA密钥</p>
-<pre><code>首先，需要购买一个vps，我使用的是digitalocean提供的服务器，
-<span class="number">1.</span>安装pptpd
-</code></pre>
+        <h1 id="0-安装grub">0.安装grub</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="keyword">get</span> install grub</span><br></pre></td></tr></table></figure>
+<h1 id="1-执行grub命令">1.执行grub命令</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#设置启动分区, stage1,stage1<span class="number">.5</span>和stage2所在的位置</span></span><br><span class="line">grub&gt;root (hd0,<span class="number">0</span>)</span><br><span class="line"><span class="preprocessor">#将grub安装到mbr</span></span><br><span class="line">grub&gt;setup (hd0)</span><br><span class="line">grub&gt;quit</span><br></pre></td></tr></table></figure>
+<h1 id="2-配置menu-lst">2.配置menu.lst</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /boot/grub/<span class="tag">menu</span>.lst</span><br></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title           Ubuntu 14.04.3 LTS, kernel <span class="number">4.2.3-04</span>0203-generic</span><br><span class="line">        root (hd0,0)</span><br><span class="line">        kernel  /vmlinuz-<span class="number">4.2.3-04</span>0203-generic root=/dev/sdb5 vga=0x34D ro quiet splash</span><br><span class="line">        initrd  /initrd.img-<span class="number">4.2.3-04</span>0203-generic</span><br><span class="line"></span><br><span class="line">title   Windows 10</span><br><span class="line">        rootnoverify (hd0,2)</span><br><span class="line">        chainloader +1</span><br></pre></td></tr></table></figure>
+<h1 id="关于sdax_和_(hd0,x)的区别">关于sdax 和 (hd0,x)的区别</h1><p>引用：<a href="http://blog.chinaunix.net/uid-26746242-id-3165146.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26746242-id-3165146.html</a></p>
+<p>问：grub里面的命令有的一句里面有（hd0,x）,还有sdax,为什么要用两种表示方法？<br>答：一块硬盘最多只能有四个主分区。其中一个可以为扩展分区（主分区的特殊形式），扩展分区中可以有60个逻辑分区。linux表示分区，与顺序和类型有关。<br>/dev/sda1为第一主分区<br>/dev/sda2为第二主分区<br>/dev/sda3为第三主分区<br>/dev/sda4为第四主分区<br>/dev/sda5为第一逻辑分区<br>/dev/sda6为第二逻辑分区<br>……<br>不管有几个主分区，逻辑分区都是从/dev/sda5开始的。也就是说，第一个逻辑分区是/dev/sda5。<br>而四个主分区，可能只有一个，或二个。而且不一定是从/dev/sda1开始的。</p>
+<p>一般以前的DOS和windows系统（2000/XP/2003，不包括windows7），使用自带的分区工具，只能分一个主分区和一个扩展分区（内含多个逻辑分区）所以，默认情况下（不是一定，可以改变的），C盘为/dev/sda1，D盘为/dev/sda5，E盘为/dev/sda6……</p>
+<p>其中/dev/sda为第一块硬盘<br>/dev/sdb为第二块硬盘（如果有的话），分区表示法后面的数字一样。</p>
+<p>grub是linux系统的启动管理器，也是根据分区顺序表示，但有不同。是以0开始的，不是以1开始的。<br>(hd0,0)为第一主分区<br>(hd0,1)为第二主分区<br>(hd0,4)为第一逻辑分区（通常为D盘）<br>(hd0,5)为第二个逻辑争区（通常为E盘）<br>……<br>(hd0)为第一个硬盘<br>(hd1)为第二个硬盘</p>
+<p>grub2是新的启动管理器，表示方法与grub有些微妙但很重要的不同<br>(hd0,1)为第一主分区<br>(hd0,2)为第二主分区<br>(hd0,5)为第一逻辑分区（通常为D盘）<br>(hd0,6)为第二个逻辑争区（通常为E盘）<br>……<br>(hd0)为第一个硬盘<br>(hd1)为第二个硬盘<br>注意，grub与grub2表示的分区方法不同</p>
+<p>linux下，只有第一主分区、第二主分区、第三主分区、第四主分区、第一逻辑分区、第二逻辑分区、第三逻辑分区……</p>
+<p>以下为常见的G版XP系统，快速分四个分区方式，在linux系统中和grub的表示法（但不保证准确）<br>C 盘/dev/sda1 (hd0,0)<br>D盘/dev/sda5 (hd0,4)<br>E盘/dev/sda6 (hd0,5)<br>F盘/dev/sda7 (hd0,6)</p>
+
       
     </div>
     
@@ -261,18 +268,9 @@ RSA signature 数字签名生成一个新的RSA密钥
     
 <nav id="article-nav">
   
-    <a href="/2016/02/21/Grub_note/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Grub学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2016/09/07/sshd/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sshd学习笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -307,7 +305,7 @@ RSA signature 数字签名生成一个新的RSA密钥
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="搭建ubuntu-pptp-vpn" data-title="搭建 ubuntu pptp vpn" data-url="http://yoursite.com/2015/11/08/搭建ubuntu-pptp-vpn/"></div>
+	<div class="ds-thread" data-thread-key="Grub_note2" data-title="Grub 安装配置" data-url="http://yoursite.com/2016/10/08/Grub_note2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
